@@ -33,7 +33,7 @@ public class CustomerController {
 	@RequestMapping(value = "/customers", method = RequestMethod.GET)
 	public ModelAndView home(Model model) {
 		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("customerSet", customerRepo.findAll());
+		map.put("customerSet", customerRepo.findActiveCustomers());
 		
 		
 		
