@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,15 +30,9 @@ public class CustomerController {
 	 * Selects the home page and populates the model with a message
 	 */
 	@RequestMapping(value = "/customers", method = RequestMethod.GET)
-	public ModelAndView home(Model model) {
+	public ModelAndView home() {
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("customerSet", customerRepo.findActiveCustomers());
-		
-		
-		
-		logger.info("Welcome home!");
-		model.addAttribute("controllerMessage",
-				"This is the message from the controller!");
 		return new ModelAndView("customers",map);
 	}
 
